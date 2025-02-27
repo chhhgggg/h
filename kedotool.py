@@ -70,65 +70,11 @@ def check_suspicious_files():
 # Chạy kiểm tra file
 check_suspicious_files()
 # 🔴 Kiểm tra xem file gốc có bị chỉnh sửa không
-SCRIPT_PATH = os.path.abspath(__file__)  # Lấy đường dẫn file đang chạy
 
-def get_file_checksum(file_path):
-    """Tạo checksum SHA256 của file."""
-    sha256 = hashlib.sha256()
-    with open(file_path, "rb") as file:
-        while chunk := file.read(4096):
-            sha256.update(chunk)
-    return sha256.hexdigest()
-
-# Lưu checksum ban đầu khi khởi động
-original_checksum = get_file_checksum(SCRIPT_PATH)
-
-def detect_modification():
-    """Kiểm tra nếu file bị sửa đổi trong quá trình chạy."""
-    while True:
-        current_checksum = get_file_checksum(SCRIPT_PATH)
-        if current_checksum != original_checksum:
-            pass#print("⚠️ Cảnh báo: File bị can thiệp hoặc chỉnh sửa! Chương trình sẽ thoát.")
-            sys.exit()
-
-# Chạy kiểm tra file trong nền (tách luồng)
-import threading
-threading.Thread(target=detect_modification, daemon=True).start()
- 
-pass#print("✅ Kiểm tra bảo mật hoàn tất. Tiếp tục chạy chương trình...")
-pass#print("✅ Kiểm tra bảo mật hoàn tất. Tiếp tục chạy chương trình...")
-def detect_suspension():
-    while True:
-        time.sleep(2)
-        try:
-            process = psutil.Process(os.getpid())
-            if process.status() in [psutil.STATUS_STOPPED, psutil.STATUS_ZOMBIE]:
-                print("⚠️ Lỗi.")
-                sys.exit()
-        except Exception as e:
-            pass#print(f"Lỗi kiểm tra tiến trình: {e}")
-            sys.exit()
-
-# Kiểm tra nếu đang chạy trên HTTPS (bị MITM để bắt request)
-def check_https_interception():
-    try:
-        response = requests.get('https://www.google.com', timeout=3)
-        if "Server" in response.headers and "MITM" in response.headers["Server"]:
-            pass#print("⚠️ Phát hiện HTTPS bị chặn để bắt request! Thoát ngay.")
-            sys.exit()
-    except requests.ConnectionError:
-        pass#print("⚠️ Không thể kiểm tra HTTPS, thoát ngay.")
-        sys.exit()
 
 # Chạy các kiểm tra liên tục trong nền
-import threading
-threading.Thread(target=detect_modification, daemon=True).start()
-threading.Thread(target=detect_suspension, daemon=True).start()
-threading.Thread(target=check_https_interception, daemon=True).start()
 
-pass#print("✅ Kiểm tra bảo mật hoàn tất, tiếp tục chạy chương trình...")   
-# File lưu key
-KEY_FILE = "keytool.txt"
+KEY_FILE = "datavlkey.txt"
 
 # URL chứa danh sách key từ GitHub
 KEY_GITHUB_URL = "https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/key.txt"
