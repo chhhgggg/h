@@ -63,7 +63,7 @@ except ImportError:
     os.system("pip3 install requests pysocks")
     print('__Vui Lòng Chạy Lại Tool__')
     sys.exit()
-ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
+ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.141/win32/chromedriver-win32.zip"
 ZIP_NAME = "chromedriver-win32.zip"
 EXTRACT_FOLDER = "chromedriver-win32"
 
