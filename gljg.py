@@ -63,7 +63,19 @@ def countdown(time_sec):
 
 def INSTAGRAM():
     url1_2 = 'https://gateway.golike.net/api/instagram-account'
-    checkurl1_2 = ses.get(url1_2,headers=headers).json()
+    response = ses.get(url1_2, headers=headers)
+
+    # Kiểm tra nếu response không thành công
+    if response.status_code != 200:
+       print(f"Request failed: {response.status_code}")
+       print(response.text)
+       checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
+    else:
+       try:
+          checkurl1_2 = response.json()
+       except json.JSONDecodeError:
+          print("Lỗi JSON, response nhận được không hợp lệ. Tiếp tục chạy...")
+          checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
     user_INS = []
     account_id1 = []
     account = []
@@ -192,8 +204,12 @@ def INSTAGRAM():
                                     'data': 'null',
                                     'type': job_type,
                                 }
-                                checkskipjob = ses.post(skipjob, params=params).json()
-
+                                response = ses.post(skipjob, params=PARAMS)
+                                try:
+                                        checkskipjob = response.json()
+                                    except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                 if checkskipjob['status'] == 200:
                                     print(Fore.RED + str(checkskipjob['message']))
 
@@ -318,7 +334,12 @@ def INSTAGRAM():
                                 'data': 'null',
                                 'type': type,
                                 }
-                                checkskipjob = ses.post(skipjob,params=PARAMS).json()
+                                response = ses.post(skipjob, params=PARAMS)
+                                try:
+                                        checkskipjob = response.json()
+                                    except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                 if checkskipjob['status'] == 200:
                                     message = checkskipjob['message']
                                     print(Fore.RED+str(message))
@@ -368,11 +389,11 @@ def banner():
     CopyRight: © KEDO@TOOL
     '''
 
-    for _ in range(5):
+    for _ in range(1):
         os.system('cls' if os.name == 'nt' else 'clear')
         color = colors[_ % len(colors)]
         print(color + banner_text)
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     print(Fore.LIGHTCYAN_EX + banner_text)
     print(Fore.LIGHTRED_EX + "-"*70)
