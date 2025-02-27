@@ -129,7 +129,7 @@ def generate_key(ip_address):
     key = f'Key{key1}{ip_numbers}'
 
     expiration_date = datetime.now().replace(hour=23, minute=59, second=0, microsecond=0)
-    url = f'https://mlevip.blogspot.com/2025/02/mlevip.html?ma={key}'
+    url = f'https://mlevip.blogspot.com/2025/02/key-ngay-hom-nay-la-function-updatetime_27.html?ma={key}'
     
     return url, key, expiration_date
 
