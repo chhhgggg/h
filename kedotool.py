@@ -33,8 +33,6 @@ if "requests" not in sys.modules or not hasattr(requests, "get"):
 
 # 🔴 Kiểm tra HTTPS
 
-
-detect_server_environment()
 # 🔴 Kiểm tra file đáng ngờ
 def check_suspicious_files():
     # Lấy danh sách file trong thư mục hiện tại
