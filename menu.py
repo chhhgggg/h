@@ -225,51 +225,51 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6.1] Tool Midas proxy[All thiết
 chon = str(input('\033[91mTOOL\033[93m➩ \033[96mNhập Số : \033[92m'))
 #golike
 if chon == '1':
-    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glttadb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glttadb.py').text)
 elif chon == '1.2':
-    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glfb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glfb.py').text)
 elif chon == '2':
-    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsttadb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/tdsttadb.py').text)
 elif chon == '3':
-    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/ttcfb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/ttcfb.py').text)
 elif chon == '4':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/nuoifb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/nuoifb.py').text)
 elif chon == '5':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regprofile.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/regprofile.py').text)
 elif chon == '1.3':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gljg.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/gljg.py').text)
 elif chon == '1.4':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gllink.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/gllink.py').text)
 if chon == '3.1':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/ttcfbunti.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/ttcfbunti.py').text)
 elif chon == '2.2':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsfb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/tdsfb.py').text)
 elif chon == '5.2':
-        exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/unfollow.py').text)
+        exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/unfollow.py').text)
 elif chon == '5.4':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regcloneauto.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/regcloneauto.py').text)
 elif chon == '5.3':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regfbb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/regfbb.py').text)
 elif chon == '1.5':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glx.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glx.py').text)
 elif chon == '1.6':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/threads.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/threads.py').text)
 elif chon == '2.3':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/igtds.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/igtds.py').text)
 elif chon == '1.1':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gltt.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/gltt.py').text)
 elif chon == '1.7':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/qk_fb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/qk_fb.py').text)
 elif chon == '6':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas.py').text)
 elif chon == '6.1':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas_proxy.py').text)
 elif chon == '7':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/menuhust.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py').text)
 elif chon == '2.1':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsunti.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/tdsunti.py').text)
 elif chon == '1.8':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glytb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glytb.py').text)
 
 
 
