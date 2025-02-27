@@ -89,6 +89,9 @@ def countdown(time_sec):
         
     #     print(timeformat, end='\r')
     #     time.sleep(1)
+import requests
+import json
+
 def YOUTUBE():
     checkaccount = requests.get('https://gateway.golike.net/api/youtube-account',headers=headers).json()
     user_YTB = []
@@ -105,6 +108,9 @@ def YOUTUBE():
         STT.append(i)
         status = Fore.GREEN + "Hoạt Động" + Fore.RESET
         STATUS.append(status)
+
+# Gọi hàm kiểm tra lỗi
+    
 
         # In thông tin của từng tài khoản
         print(f'\033[1;97m•[🌸]➭\033[1;36m [{i}] \033[1;91m=> \033[1;97mTên Tài Khoản┊\033[1;32m :\033[1;93m {usernametk} \033[1;91m=> \033[1;97mStatus|\033[1;32m :\033[1;93m {status}')
@@ -396,8 +402,13 @@ def YOUTUBE():
                                         'data': 'null',
                                         'type': type,
                                         }
-                                        checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                        if checkskipjob['status'] == 200:
+                                        response = ses.post(skipjob, params=PARAMS)
+                                        try:
+                                          checkskipjob = response.json()
+                                        except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                          checkskipjob = {} 
+                                        if checkskipjob.get['status', 0] == 200:
                                             message = checkskipjob['message']
                                             print(Fore.RED+str(message))
                                             PARAMSr = {
@@ -418,8 +429,13 @@ def YOUTUBE():
                                     'data': 'null',
                                     'type': type,
                                     }
-                                    checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                    if checkskipjob['status'] == 200:
+                                    response = ses.post(skipjob, params=PARAMS)
+                                    try:
+                                      checkskipjob = response.json()
+                                    except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                      checkskipjob = {} 
+                                    if checkskipjob.get['status', 0] == 200:
                                         message = checkskipjob['message']
                                         print(Fore.RED+str(message))
                                         PARAMSr = {
@@ -445,8 +461,13 @@ def YOUTUBE():
                         'data': 'null',
                         'type': type,
                         }
-                        checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                        if checkskipjob['status'] == 200:
+                        response = ses.post(skipjob, params=PARAMS)
+                        try:
+                          checkskipjob = response.json()
+                        except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                          checkskipjob = {} 
+                        if checkskipjob.get['status', 0] == 200:
                             message = checkskipjob['message']
                             print(Fore.RED+str(message))
                             PARAMSr = {
