@@ -32,7 +32,6 @@ if "requests" not in sys.modules or not hasattr(requests, "get"):
     sys.exit()
 
 # 🔴 Kiểm tra HTTPS
-
 # 🔴 Kiểm tra file đáng ngờ
 def check_suspicious_files():
     # Lấy danh sách file trong thư mục hiện tại
