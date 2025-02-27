@@ -75,8 +75,27 @@ def countdown(time_sec):
     print("\033[1;35mĐang Nhận Xiền Rồi       ", end="\r")
 
 def LINKEDIN():
-    checkaccount = requests.get('https://gateway.golike.net/api/linkedin-account', headers=headers).json()
-    # Khởi tạo danh sách chứa tên tài khoản, ID, và trạng thái
+    
+    response = requests.get('https://gateway.golike.net/api/linkedin-account', headers=headers)
+
+    # Kiểm tra mã phản hồi trước khi xử lý JSON
+    if response.status_code != 200:
+        print(f"Request failed: {response.status_code}")
+        print(response.text)
+        return {"data": []}  # Trả về giá trị mặc định để tránh lỗi
+
+    try:
+        checkaccount = response.json()  # Chuyển đổi response thành dict
+    except json.JSONDecodeError:
+        print("Lỗi JSON, response nhận được không hợp lệ. Tiếp tục chạy...")
+        return {"data": []}  # Trả về giá trị mặc định để tránh lỗi
+
+    # Kiểm tra dữ liệu trả về có hợp lệ không
+    if not isinstance(checkaccount, dict) or "data" not in checkaccount:
+        print("Dữ liệu API không hợp lệ, tiếp tục với danh sách trống.")
+        return {"data": []}
+
+    # Khởi tạo danh sách chứa thông tin tài khoản LinkedIn
     user_linkedin1 = []
     account_id1 = []
     STT = []
@@ -199,8 +218,13 @@ def LINKEDIN():
                                             'account_id' : account_id,
                                             'object_id' : object_id ,
                                             }
-                                            checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                            if checkskipjob['status'] == 200:
+                                            response = ses.post(skipjob, params=PARAMS)
+                                            try:
+                                               checkskipjob = response.json()
+                                            except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                               checkskipjob = {} 
+                                            if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                                 message = checkskipjob['message']
                                                 print(Fore.RED+str(message))
                                                 PARAMSr = {
@@ -280,8 +304,13 @@ def LINKEDIN():
                                             'account_id' : account_id,
                                             'object_id' : object_id ,
                                             }
-                                            checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                            if checkskipjob['status'] == 200:
+                                            response = ses.post(skipjob, params=PARAMS)
+                                            try:
+                                               checkskipjob = response.json()
+                                            except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                               checkskipjob = {} 
+                                            if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                                 message = checkskipjob['message']
                                                 print(Fore.RED+str(message))
                                                 PARAMSr = {
@@ -347,8 +376,13 @@ def LINKEDIN():
                                                 'account_id' : account_id,
                                                 'object_id' : object_id ,
                                                 }
-                                                checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                                if checkskipjob['status'] == 200:
+                                                response = ses.post(skipjob, params=PARAMS)
+                                                try:
+                                                  checkskipjob = response.json()
+                                                except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                                  checkskipjob = {} 
+                                                if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                                     message = checkskipjob['message']
                                                     print(Fore.RED+str(message))
                                                     PARAMSr = {
@@ -419,8 +453,13 @@ def LINKEDIN():
                                             'account_id' : account_id,
                                             'object_id' : object_id ,
                                             }
-                                            checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                            if checkskipjob['status'] == 200:
+                                            response = ses.post(skipjob, params=PARAMS)
+                                            try:
+                                               checkskipjob = response.json()
+                                            except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                               checkskipjob = {} 
+                                            if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                                 message = checkskipjob['message']
                                                 print(Fore.RED+str(message))
                                                 PARAMSr = {
@@ -487,8 +526,13 @@ def LINKEDIN():
                                                 'object_id' : object_id ,
                                             
                                                 }
-                                                checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                                if checkskipjob['status'] == 200:
+                                                response = ses.post(skipjob, params=PARAMS)
+                                                try:
+                                                  checkskipjob = response.json()
+                                                except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                                  checkskipjob = {} 
+                                                if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                                     message = checkskipjob['message']
                                                     print(Fore.RED+str(message))
                                                     PARAMSr = {
@@ -627,8 +671,13 @@ def LINKEDIN():
                                 'account_id' : account_id,
                                 'object_id' : object_id ,
                                 }
-                                checkskipjob = ses.post(skipjob,params=PARAMS).json()
-                                if checkskipjob['status'] == 200:
+                                response = ses.post(skipjob, params=PARAMS)
+                                try:
+                                  checkskipjob = response.json()
+                                except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                  checkskipjob = {} 
+                                if checkskipjob.get('status', 0) == 200:  # Nếu không có 'status', mặc định là 0
                                     message = checkskipjob['message']
                                     print(Fore.RED+str(message))
                                     PARAMSr = {
@@ -670,10 +719,10 @@ def banner():
     '''
 
     # Hiệu ứng nhấp nháy
-    for _ in range(10):
+    for _ in range(1):
         color = colors[_ % len(colors)]
         print(color + banner_text)
-        time.sleep(0.5)
+        time.sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
 
     # Hiển thị banner lần cuối với màu nổi bật
