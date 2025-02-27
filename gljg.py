@@ -67,20 +67,21 @@ def INSTAGRAM():
 
     # Kiểm tra nếu response không thành công
     if response.status_code != 200:
-       print(f"Request failed: {response.status_code}")
-       print(response.text)
-       checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
+        print(f"Request failed: {response.status_code}")
+        print(response.text)
+        checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
     else:
-       try:
-          checkurl1_2 = response.json()
-       except json.JSONDecodeError:
-          print("Lỗi JSON, response nhận được không hợp lệ. Tiếp tục chạy...")
-          checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
+        try:
+           checkurl1_2 = response.json()
+        except json.JSONDecodeError:  # Chỉnh lại thụt lề cho đúng
+           print("Lỗi JSON, response nhận được không hợp lệ. Tiếp tục chạy...")
+           checkurl1_2 = {"data": []}  # Gán giá trị mặc định để tránh lỗi sau này
+
     user_INS = []
     account_id1 = []
     account = []
     STT = []
-    STATUS =[]
+    STATUS = []
     tong = 0
     dem = 0
     i = 1
@@ -206,10 +207,10 @@ def INSTAGRAM():
                                 }
                                 response = ses.post(skipjob, params=PARAMS)
                                 try:
-                                        checkskipjob = response.json()
-                                    except json.JSONDecodeError:
+                                   checkskipjob = response.json()
+                                except json.JSONDecodeError:
                                         #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
-                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
+                                   checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                 if checkskipjob['status'] == 200:
                                     print(Fore.RED + str(checkskipjob['message']))
 
@@ -336,10 +337,10 @@ def INSTAGRAM():
                                 }
                                 response = ses.post(skipjob, params=PARAMS)
                                 try:
-                                        checkskipjob = response.json()
-                                    except json.JSONDecodeError:
+                                   checkskipjob = response.json()
+                                except json.JSONDecodeError:
                                         #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
-                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
+                                   checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                 if checkskipjob['status'] == 200:
                                     message = checkskipjob['message']
                                     print(Fore.RED+str(message))
