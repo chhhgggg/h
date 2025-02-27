@@ -6,8 +6,6 @@ import base64
 import requests
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor
-# 🔴 Kiểm tra xem requests có bị thay thế không
-#print("Đang kiểm tra bảo mật...")
 import os
 import sys
 import json
