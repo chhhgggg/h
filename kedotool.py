@@ -160,7 +160,7 @@ pass#print("✅ Kiểm tra bảo mật hoàn tất, tiếp tục chạy chương
 KEY_FILE = "keytool.txt"
 
 # URL chứa danh sách key từ GitHub
-KEY_GITHUB_URL = "https://raw.githubusercontent.com/mleccuuuu/cc/main/key.txt"
+KEY_GITHUB_URL = "https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/key.txt"
 
 # API Token của Link4m (cần thay thế bằng token của bạn)
 TOKEN_LINK4M = "1f06c470cc45a0d11ef440cb959c716466487b6b46c78b099fe7d1804e573235"
