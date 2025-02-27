@@ -59,7 +59,7 @@ from pystyle import Center, Colorate, Colors
 init(autoreset=True)
 
 # File lưu key
-KEY_FILE = "keytool.txt"
+KEY_FILE = "datavlkey.txt"
 
 # Hàm giải mã dữ liệu
 def decrypt_data(encrypted_data):
