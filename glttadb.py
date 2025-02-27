@@ -452,10 +452,10 @@ def banner():
     '''
 
     # Hiệu ứng nhấp nháy
-    for _ in range(10):
+    for _ in range(1):
         color = colors[_ % len(colors)]
         print(color + banner_text)
-        time.sleep(0.5)
+        time.sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
 
     # Hiển thị banner lần cuối với màu nổi bật
