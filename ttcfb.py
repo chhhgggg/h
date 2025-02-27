@@ -299,11 +299,7 @@ def _React_Cmt(cookie, idfb, fb1, uid, type):
         return False
     
 def _Follow(cookie, idfb, fb1, uid):
-    try:
-        if not uid:
-            print("Lỗi: uid không hợp lệ")
-            return False  # Bỏ qua nếu UID không hợp lệ 
-        headers = {
+    headers = {
         "accept": "*/*", 
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7", 
         "content-type": "application/x-www-form-urlencoded", 
@@ -320,7 +316,7 @@ def _Follow(cookie, idfb, fb1, uid):
         "x-fb-friendly-name": "CometUserFollowMutation", 
         "x-fb-lsd": "7_RkODA0fo-6ShZlbFpHEW"
     }
-        _data = {
+    _data = {
         'av': idfb,
         '__aaid': '0',
         '__user': idfb,
@@ -347,16 +343,13 @@ def _Follow(cookie, idfb, fb1, uid):
         'server_timestamps': 'true',
         'doc_id': '25581663504782089',
     }
-        cookies = {
+    cookies = {
         "cookie": cookie
     }
-        _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
-        if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
-            return True
-        else:
-            return False
-    except Exception as e:
-        print(f"Lỗi trong _Follow: {e}")
+    _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
+    if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
+        return True
+    else:
         return False
     
 def _CMT(cookie, id, idfb, fb1, msg: str):
@@ -413,7 +406,7 @@ def _CMT(cookie, id, idfb, fb1, msg: str):
     }
     
         _get = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
-        if '"errors"' not in _post.text:
+        if '"errors"' not in _get.text:
            return True  # Bình luận thành công
         else:
            return False  # Bình luận thất bại
@@ -1244,7 +1237,7 @@ def Main():
                             else:
                                 print(f'{luc}link bài viết die', end = '\r'); sleep(2); print('                                                       ', end = '\r')
                                 countdown(3)
-                            like = CMT(ck, uid, _info[1], _info[0], ndcmt)
+                            like = _CMT(ck, uid, _info[1], _info[0], ndcmt)
                             if like == False:
                                 print(f"{luc}FAIL {lam}CMT{trang}: {vang}{uid}             ", end = '\r'); sleep(2); print('                                                       ', end = '\r')
                                 _Bypass(ck, _info[1], _info[0])
