@@ -32,31 +32,7 @@ if "requests" not in sys.modules or not hasattr(requests, "get"):
     sys.exit()
 
 # 🔴 Kiểm tra HTTPS
-try:
-    response = requests.get("https://www.google.com", timeout=5)
-    if response.status_code != 200:
-        print("⚠️       Lỗi.")
-        sys.exit()
-except requests.exceptions.SSLError:
-    print("⚠️         Lỗi.")
-    sys.exit()
-except requests.exceptions.ConnectionError:
-    print("⚠️    Không có kết nối mạng! Kiểm tra lại internet.")
-    sys.exit()
 
-# 🔴 Kiểm tra nếu đang chạy trên máy chủ web
-def detect_server_environment():
-    try:
-        hostname = socket.gethostname()
-        ip_address = socket.gethostbyname(hostname)
-
-        # Nếu IP thuộc dải máy chủ web phổ biến → Thoát
-        web_host_ips = ["0.0.0.0", "localhost"]
-        if ip_address in web_host_ips or "heroku" in hostname or "render" in hostname:
-            print("⚠️ Lỗi..")
-            sys.exit()
-    except Exception as e:
-        pass# print(f"⚠️ Lỗi kiểm tra môi trường: {e}")
 
 detect_server_environment()
 # 🔴 Kiểm tra file đáng ngờ
