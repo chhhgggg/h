@@ -53,6 +53,7 @@ if user_input in ['y', 'yes']:
     os.system('pip install numpy')
     os.system('pip install dnspython')
     os.system('pip install tabulate')
+    os.system('pip install bs4')
     os.system('pkg install android-tools')
     
     print("Cài đặt hoàn tất. Vui lòng chạy lại chương trình!")
