@@ -45,15 +45,15 @@ if not is_valid:
 
 # Hiển thị banner
 def banner():
-    console.print("[bold cyan]----------------------------------------[/bold cyan]")
-    console.print("[bold green]Chào mừng bạn đến với Tool![/bold green]")
-    console.print("[bold cyan]----------------------------------------[/bold cyan]")
-    console.print("[bold green]Admin : 0367742346/0348865758[/bold green]")
-    console.print("[bold green]Chat support: https://zalo.me/g/uaahwq871[/bold green]")
-    console.print("[bold cyan]----------------------------------------[/bold cyan]")
-    console.print(f"[bold white]Key của bạn:[/bold white] {key}")
-    console.print(f"[bold white]Thời hạn còn lại:[/bold white] {days_left} ngày")
-    console.print("[bold cyan]----------------------------------------[/bold cyan]")
+    console.print("    [bold cyan]----------------------------------------[/bold cyan]")
+    console.print("    [bold green]Chào mừng bạn đến với Tool![/bold green]")
+    console.print("    [bold cyan]----------------------------------------[/bold cyan]")
+    console.print("    [bold green]Admin : 0367742346/0348865758[/bold green]")
+    console.print("    [bold green]Chat support: https://zalo.me/g/uaahwq871[/bold green]")
+    console.print("    [bold cyan]----------------------------------------[/bold cyan]")
+    console.print(f"   [bold white]Key của bạn:[/bold white] {key}")
+    console.print(f"   [bold white]Thời hạn còn lại:[/bold white] {days_left} ngày")
+    console.print("    [bold cyan]----------------------------------------[/bold cyan]")
 
 banner()
 
