@@ -146,7 +146,6 @@ script_urls = {
     '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py',
     '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
 }
-
 if chon in script_urls:
     exec(requests.get(script_urls[chon]).text)
 else:
