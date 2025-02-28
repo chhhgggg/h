@@ -30,6 +30,34 @@ from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor
 import psutil
 import time
+try:
+    import requests, json, numpy
+    from pystyle import Colors, Write
+    import os, pystyle
+    import base64
+    from datetime import datetime
+    import random
+    from time import sleep
+    import os
+    import requests
+# URL của file api.py trên GitHub
+
+except ImportError as e:
+    print(f"Lỗi: {e}")
+    pass#print("Có vẻ như một số module chưa được cài đặt.")
+user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
+if user_input in ['y', 'yes']:
+    os.system('pip install requests')
+    os.system('pip install pystyle')
+    os.system('pip install pyfiglet')
+    os.system('pip install numpy')
+    os.system('pip install dnspython')
+    os.system('pip install tabulate')
+    os.system('pkg install android-tools')
+    
+    print("Cài đặt hoàn tất. Vui lòng chạy lại chương trình!")
+    sleep(1)  # Đợi 2 giây rồi thoát
+    exit()
 # 🔴 Kiểm tra xem requests có bị thay thế không
 if "requests" not in sys.modules or not hasattr(requests, "get"):
     print("⚠️ Lỗi.")
