@@ -44,8 +44,7 @@ try:
 except ImportError as e:
     print(f"Lỗi: {e}")
     pass#print("Có vẻ như một số module chưa được cài đặt.")
-user_input = input("Nếu bạn lần đầu chạy, Bạn là người mới?
-thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
+user_input = input("  Nếu bạn lần đầu chạy, Bạn là người mới? thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
 if user_input in ['y', 'yes']:
     os.system('pip install requests')
     os.system('pip install pystyle')
