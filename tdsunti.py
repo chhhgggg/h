@@ -54,11 +54,11 @@ import platform
 from pathlib import Path
 # Xác định đường dẫn của thư mục Profile
 if os.name == 'nt':  # Windows
-    base_profile_path = Path(os.environ['USERPROFILE']) / "Profile"
+    base_profile_path = Path(os.environ['USERPROFILE']) / "profile"
 elif os.name == 'posix' and platform.system() == 'Darwin':  # macOS
-    base_profile_path = Path.home() / "Profile"
+    base_profile_path = Path.home() / "profile"
 else:  # Linux hoặc hệ thống khác
-    base_profile_path = Path.cwd() / "Profile"  # Thay vì `current_dir`, dùng `Path.cwd()`
+    base_profile_path = Path.cwd() / "profile"  # Thay vì `current_dir`, dùng `Path.cwd()`
 
 # Tạo thư mục nếu chưa tồn tại
 try:
@@ -323,7 +323,16 @@ def _Bypass(cookie, idfb, fb1):
 
 #define hệ thống
 def lay_data():
-    base_profile_path = os.getcwd()+'\\profiles'
+    base_profile_path = os.path.join(os.getcwd(), 'profiles')
+
+# Kiểm tra nếu thư mục chưa tồn tại, thì tạo
+    if not os.path.exists(base_profile_path):
+       try:
+          os.makedirs(base_profile_path)
+          print(f"Đã tạo thư mục: {base_profile_path}")
+       except Exception as e:
+          print(f"Lỗi khi tạo thư mục: {e}")
+          exit()
     profiles = [f for f in os.listdir(base_profile_path) if os.path.isdir(os.path.join(base_profile_path, f))]
     profiles.sort()
     
