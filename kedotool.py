@@ -112,8 +112,8 @@ KEY_FILE = "datavlkey.txt"
 KEY_GITHUB_URL = "https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/key.txt"
 
 # API Token của Link4m (cần thay thế bằng token của bạn)
-TOKEN_LINK4M = "1f06c470cc45a0d11ef440cb959c716466487b6b46c78b099fe7d1804e573235"
-
+TOKEN_LINK4M = "668bc1beab3a3470326ea5"
+#https://link4m.co/api-shorten/v2?api=668bc1beab3a3470326ea5fd&url=yourdestinationlink.com
 # Mã hóa & giải mã dữ liệu
 def encrypt_data(data):
     return base64.b64encode(data.encode()).decode()
@@ -162,9 +162,9 @@ def generate_key(ip_address):
     return url, key, expiration_date
 
 # Rút gọn URL bằng Link4m
-def get_shortened_link_link4m(url):#TOKEN_LINK4M
+def get_shortened_link_link4m(url):#TOKEN_LINK4M # https://link4m.co/api-shorten/v2?api={TOKEN_LINK4M}&url={url}
     try:
-        api_url = f"https://yeumoney.com/QL_api.php?token={TOKEN_LINK4M}&format=json&url={url}"
+        api_url = f"https://link4m.co/api-shorten/v2?api={TOKEN_LINK4M}&url={url}"
         response = requests.get(api_url, timeout=5)
         if response.status_code == 200:
             data = response.json()
