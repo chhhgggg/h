@@ -46,6 +46,9 @@ if not is_valid:
 
 # Hiển thị banner
 def banner():
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Lấy thời gian hiện tại
+    expiration_time = (datetime.now() + timedelta(days=days_left)).strftime("%Y-%m-%d %H:%M:%S") if days_left > 0 else "Hết hạn"
+    
     console.print("    [bold cyan]----------------------------------------[/bold cyan]")
     console.print("    [bold green]Chào mừng bạn đến với Tool![/bold green]")
     console.print("    [bold cyan]----------------------------------------[/bold cyan]")
