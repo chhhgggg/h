@@ -1,13 +1,15 @@
 import os
 import requests
 import sys
-import time
 import json
 import base64
 from datetime import datetime
+from rich.console import Console
+from rich.table import Table
 
 # File lưu key
 KEY_FILE = "datavlkey.txt"
+console = Console()
 
 # Hàm giải mã dữ liệu
 def decrypt_data(encrypted_data):
@@ -28,93 +30,87 @@ def check_saved_key():
 
             if expiration_date > datetime.now():
                 days_left = (expiration_date - datetime.now()).days
-                return True, f"Key hợp lệ! Hết hạn: {expiration_date.strftime('%Y-%m-%d %H:%M:%S')} ({days_left} ngày nữa)", key, days_left
+                return True, f"✅ Key hợp lệ! Hết hạn: {expiration_date.strftime('%Y-%m-%d %H:%M:%S')} ({days_left} ngày nữa)", key, days_left
             else:
-                return False, "Key đã hết hạn!", "", 0
+                return False, "❌ Key đã hết hạn!", "", 0
     except:
-        return False, "Lỗi khi đọc file key!", "", 0
+        return False, "⚠️ Lỗi khi đọc file key!", "", 0
 
 # Kiểm tra key
 is_valid, message, key, days_left = check_saved_key()
-print(message)
+console.print(f"[bold yellow]{message}[/bold yellow]")
 if not is_valid:
-    print("\nYêu cầu nhập key mới!")
+    console.print("\n[bold red]Yêu cầu nhập key mới![/bold red]")
     exit()
 
 # Hiển thị banner
 def banner():
-    banner_text = f'''
-    ----------------------------------------
-    Chào mừng bạn đến với Tool
-    ----------------------------------------
-    Chúc bạn một ngày vui vẻ và nhiều may mắn!
-    Mèo con chúc bạn code không lỗi!
-    ----------------------------------------
-    Key của bạn: {key}
-    Thời hạn còn lại: {days_left} ngày
-    ----------------------------------------
-    Admin support tool Zalo: 0367742346
-    Chat support: https://zalo.me/g/uaahwq871
-    Web VPN giá rẻ & ID Apple free: timgiare.top
-    ----------------------------------------
-    CopyRight: © KEDO@TOOL
-    '''
-    print(banner_text)
+    console.print("[bold cyan]----------------------------------------[/bold cyan]")
+    console.print("[bold green]Chào mừng bạn đến với Tool![/bold green]")
+    console.print("[bold cyan]----------------------------------------[/bold cyan]")
+    console.print(f"[bold white]Key của bạn:[/bold white] {key}")
+    console.print(f"[bold white]Thời hạn còn lại:[/bold white] {days_left} ngày")
+    console.print("[bold cyan]----------------------------------------[/bold cyan]")
 
-# Hiển thị menu tool
-print("----------------------------------------")
-print("Tool Auto Golike")
-print("----------------------------------------")
-print("[1] Tool Auto TikTok ADB auto follow, tim...")
-print("[1.1] Tool Tiktok Không Auto Click[Mobile]")
-print("[1.2] Tool Auto Facebook[Vip-PC]")
-print("[1.3] Tool Auto Instagram[PC cần giả lập-Mobile]")
-print("[1.4] Tool Auto LinkedIn[PC cần giả lập-Mobile]")
-print("[1.5] Tool Auto X[PC cần giả lập-Mobile]")
-print("[1.6] Tool Auto Threads[PC cần giả lập-Mobile]")
-print("[1.7] Tool Auto Facebook 100% auto Giải Captcha New Update Thử Nghiệm[PC]")
-print("[1.8] Tool Auto Youtube[Giả lập-Mobile]")
+banner()
 
-print("----------------------------------------")
-print("Tool Auto Hustmedia")
-print("----------------------------------------")
-print("[7] Tool Auto Facebook, Instagram[All Thiết Bị]")
+# Danh sách tool
+tools = {
+    "Auto Golike": [
+        ("1", "Auto TikTok ADB"),
+        ("1.1", "TikTok Không Auto Click"),
+        ("1.2", "Auto Facebook [PC]"),
+        ("1.3", "Auto Instagram"),
+        ("1.4", "Auto LinkedIn"),
+        ("1.5", "Auto X (Twitter)"),
+        ("1.6", "Auto Threads"),
+        ("1.7", "Facebook Auto Captcha"),
+        ("1.8", "Auto YouTube"),
+    ],
+    "Auto Hustmedia": [
+        ("7", "Auto Facebook, Instagram"),
+    ],
+    "Trao Đổi Sub": [
+        ("2", "TDS TikTok ADB"),
+        ("2.1", "Auto Facebook [PC]"),
+        ("2.2", "Auto Facebook [PC+Mobile]"),
+        ("2.3", "Auto Instagram"),
+    ],
+    "Tương Tác Chéo": [
+        ("3", "TTC Facebook"),
+        ("3.1", "TTC Facebook Untiblock"),
+    ],
+    "Nuôi Facebook VIP": [
+        ("4", "Nuôi Facebook [PC]"),
+    ],
+    "Tiện Ích": [
+        ("5", "Reg Profile Facebook"),
+        ("5.2", "Unlock Follow TikTok"),
+        ("5.3", "Reg Facebook Novery"),
+        ("5.4", "Reg Facebook Full Proxy"),
+    ],
+    "Airdrop Auto": [
+        ("6", "Midas No Proxy"),
+        ("6.1", "Midas Proxy"),
+    ],
+}
 
-print("----------------------------------------")
-print("Tool Trao Đổi Sub")
-print("----------------------------------------")
-print("[2] Tool TDS TikTok ADB auto follow, tim...")
-print("[2.1] Tool Auto Facebook[PC]")
-print("[2.2] Tool Auto Facebook[PC+Mobile](die)")
-print("[2.3] Tool Auto Instagram[PC+Mobile](die)")
+# Hiển thị menu dạng bảng
+def display_menu():
+    for category, items in tools.items():
+        table = Table(title=f"[bold cyan]{category}[/bold cyan]", header_style="bold white", style="bold blue")
+        table.add_column("Lựa Chọn", justify="center", style="bold yellow", width=10)
+        table.add_column("Chức Năng", justify="left", style="white")
 
-print("----------------------------------------")
-print("Tool Tương Tác Chéo")
-print("----------------------------------------")
-print("[3] Tool TTC Facebook[Mobile+PC]")
-print("[3.1] Tool TTC Facebook[PC Untiblock,Vip]")
+        for item in items:
+            table.add_row(item[0], item[1])
 
-print("----------------------------------------")
-print("Tool Nuôi Facebook VIP")
-print("----------------------------------------")
-print("[4] Tool Nuôi Facebook[PC]")
+        console.print(table)
 
-print("----------------------------------------")
-print("Tool Tiện ích")
-print("----------------------------------------")
-print("[5] Tool reg profile Facebook [PC+Mobile]")
-print("[5.1] Tool Chuyển Quản Trị Profile Facebook [PC+Mobile](die)")
-print("[5.2] Tool Unlock follow Tiktok Selenium [PC]")
-print("[5.3] Tool reg Facebook Novery[PC+Mobile]")
-print("[5.4] Tool reg Facebook Full100% Cần Proxy Xịn[PC+Mobile]")
+display_menu()
 
-print("----------------------------------------")
-print("Tool Airdrop Auto")
-print("----------------------------------------")
-print("[6] Tool Midas noproxy[All thiết bị]")
-print("[6.1] Tool Midas proxy[All thiết bị]")
-
-chon = str(input('Nhập số: '))
+# Nhập lựa chọn từ người dùng
+chon = str(console.input("[bold magenta]Nhập số:[/bold magenta] "))
 
 # Kiểm tra lựa chọn và thực thi script từ URL
 script_urls = {
@@ -146,5 +142,5 @@ script_urls = {
 if chon in script_urls:
     exec(requests.get(script_urls[chon]).text)
 else:
-    print("Sai lựa chọn!")
+    console.print("[bold red]⚠️ Sai lựa chọn![/bold red]")
     exit()
