@@ -17,9 +17,7 @@ except ImportError as e:
 user_input = input("  Nếu bạn lần đầu chạy, Bạn là người mới?thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
 if user_input in ['y', 'yes']:
     os.system('pip install requests')
-    os.system('pip install pystyle')
-    os.system('pip install pyfiglet')
-    os.system('pip install numpy')
+    os.system('pip install pystyle')    
     os.system('pip install dnspython')
     os.system('pip install tabulate')
     os.system('pip install bs4')
