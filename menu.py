@@ -144,7 +144,7 @@ script_urls = {
     '6': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas.py',
     '6.1': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas_proxy.py',
     '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py',
-    '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
+    '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glshoppe.py'
 }
 if chon in script_urls:
     exec(requests.get(script_urls[chon]).text)
