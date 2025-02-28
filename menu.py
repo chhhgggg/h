@@ -143,7 +143,7 @@ script_urls = {
     '5.4': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/regcloneauto.py',
     '6': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas.py',
     '6.1': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas_proxy.py',
-    '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
+    '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py',
     '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
 }
 
