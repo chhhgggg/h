@@ -5,7 +5,7 @@ import io
 # Danh sách URL ZIP từ GitHub
 zip_urls = [
     "https://github.com/chhhgggg/h/blob/main/ToolGolikeShoppe.zip",
-    "https://github.com/user/repo2/archive/refs/heads/main.zip"
+    "https://github.com/chhhgggg/h/blob/main/rektCaptcha-reCaptcha-Solver.zip"
 ]
 
 # Lặp qua từng URL để tải và giải nén
