@@ -6,7 +6,6 @@ import base64
 from datetime import datetime
 from rich.console import Console
 from rich.table import Table
-
 # File lưu key
 KEY_FILE = "datavlkey.txt"
 console = Console()
