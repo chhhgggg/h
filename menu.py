@@ -63,23 +63,24 @@ banner()
 # Danh sách tool
 tools = {
     "Auto Golike": [
-        ("1", "Auto TikTok ADB"),
+        ("1",   "TikTok ADB[Giả lập+Mobile]"),
         ("1.1", "TikTok Không Auto Click"),
-        ("1.2", "Auto Facebook [PC]"),
-        ("1.3", "Auto Instagram"),
-        ("1.4", "Auto LinkedIn"),
-        ("1.5", "Auto X (Twitter)"),
-        ("1.6", "Auto Threads"),
-        ("1.7", "Facebook Auto Captcha"),
-        ("1.8", "Auto YouTube"),
+        ("1.2", "Facebook [PC]"),
+        ("1.3", "Instagram[Giả lập+Mobile]"),
+        ("1.4", "LinkedIn[Giả lập+Mobile]"),
+        ("1.5", "X [Giả lập+Mobile]"),
+        ("1.6", "Threads[Giả lập+Mobile]"),
+        ("1.7", "Facebook Auto Captcha[PC]"),
+        ("1.8", "YouTube[Giả lập+Mobile]"),
+        ("1.9", "Shoppe [All]"),
     ],
     "Auto Hustmedia": [
-        ("7", "Auto Facebook, Instagram"),
+        ("7", "Facebook, Instagram[Bảo trì]"),
     ],
     "Trao Đổi Sub": [
         ("2", "TDS TikTok ADB"),
         ("2.1", "Auto Facebook [PC]"),
-        ("2.2", "Auto Facebook [PC+Mobile]"),
+        ("2.2", "Facebook [PC+Mobile][Bảo trì]"),
         ("2.3", "Auto Instagram"),
     ],
     "Tương Tác Chéo": [
@@ -143,6 +144,7 @@ script_urls = {
     '6': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas.py',
     '6.1': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas_proxy.py',
     '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
+    '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py'
 }
 
 if chon in script_urls:
