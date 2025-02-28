@@ -1,8 +1,8 @@
-print("Đang tạo key...")
-print("Nếu lỗi vui lòng tạo một folder khác nhét file tool vào ...")
-print("Chúng tôi phát hiện ra nhiều thành phần đem tool của chúng tôi đi bán...")
-print("Cho nên chúng tôi đg cố gắng bảo vệ tool...")
-print("Hãy thông cảm cho chúng tôi nếu bạn gặp lỗi...")
+print("  Đang tạo key...")
+print("  Nếu lỗi vui lòng tạo một folder khác nhét file tool vào ...")
+print("  Chúng tôi phát hiện ra nhiều thành phần đem tool của chúng tôi đi bán...")
+print("  Cho nên chúng tôi đg cố gắng bảo vệ tool...")
+print("  Hãy thông cảm cho chúng tôi nếu bạn gặp lỗi...")
 import os
 import sys
 import json
