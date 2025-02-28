@@ -71,7 +71,7 @@ def check_suspicious_files():
         # Điều kiện kiểm tra:
         if (
             file.lower().startswith("re")  # Bắt đầu bằng "re"
-            or file.lower() == "requestes.py"  # Tên chính xác là "requestes"
+            or file.lower() == "requests.py"  # Tên chính xác là "requestes"
             or (file.startswith("Re") and file.endswith(".txt"))  # Bắt đầu "Re." và có đuôi ".txt".     
             or (file.startswith("Re") and file.endswith(".exe")) 
             or (file.startswith("re") and file.endswith(".exe")) 
