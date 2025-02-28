@@ -41,7 +41,6 @@ try:
     import os
     import requests
 # URL của file api.py trên GitHub
-
 except ImportError as e:
     print(f"Lỗi: {e}")
     pass#print("Có vẻ như một số module chưa được cài đặt.")
