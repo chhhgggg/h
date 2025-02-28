@@ -112,7 +112,7 @@ KEY_FILE = "datavlkey.txt"
 KEY_GITHUB_URL = "https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/key.txt"
 
 # API Token của Link4m (cần thay thế bằng token của bạn)
-TOKEN_LINK4M = "668bc1beab3a3470326ea5"
+TOKEN_LINK4M = "668bc1beab3a3470326ea5fd"
 #https://link4m.co/api-shorten/v2?api=668bc1beab3a3470326ea5fd&url=yourdestinationlink.com
 # Mã hóa & giải mã dữ liệu
 def encrypt_data(data):
