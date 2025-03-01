@@ -56,18 +56,105 @@ software_names = [SoftwareName.CHROME.value]
 operating_systems = [OperatingSystem.WINDOWS.value, OperatingSystem.LINUX.value]   
 user_agent_rotator = UserAgent(software_names=software_names, operating_systems=operating_systems, limit=100)
 
+TOA_DO_FILE = "toa_doglsnapchat.txt"
 
+def lay_toa_do_nut():
+    """Lấy tọa độ nút từ người dùng nhập vào hoặc đọc từ file nếu có"""
+    if os.path.exists(TOA_DO_FILE):
+        try:
+            with open(TOA_DO_FILE, "r") as file:
+                toa_do = json.load(file)
+            print("Sử dụng tọa độ đã lưu:", toa_do)
+            return toa_do
+        except Exception as e:
+            print(f"Lỗi khi đọc tọa độ từ file: {e}, nhập lại tọa độ mới.")
+
+    print("\n=== Cài đặt Tọa độ Nút Bấm ===")
+    try:
+        follow_x = int(input("Nhập tọa độ X của nút Follow: "))
+        follow_y = int(input("Nhập tọa độ Y của nút Follow: "))
+        
+        if any(toa_do < 0 for toa_do in [follow_x, follow_y]):
+            raise ValueError("Tọa độ không thể là số âm")
+
+        toa_do = {
+            "follow": (follow_x, follow_y)         
+        }
+
+        # Lưu tọa độ vào file
+        with open(TOA_DO_FILE, "w") as file:
+            json.dump(toa_do, file)
+
+        print("Tọa độ đã được lưu!")
+        return toa_do
+
+    except ValueError as e:
+        print(f"Lỗi nhập tọa độ: {str(e)}. Vui lòng nhập số hợp lệ.")
+        return None
+
+def kiem_tra_adb():
+    """Kiểm tra xem thiết bị có kết nối với ADB hay không"""
+    output = os.popen("adb devices").read()
+    if "device" in output.split("\n")[1]:  # Dòng thứ hai chứa danh sách thiết bị
+        return True
+    print("Lỗi: Không tìm thấy thiết bị ADB!")
+    return False
+
+def click_tiktok_buttons(toa_do, delay):
+    """Click vào nút Follow và thả tim bằng nhấp đúp trên TikTok."""
+    if not kiem_tra_adb():
+        return False
+
+    try:
+        # Click vào nút Follow
+        os.system(f"adb shell input tap {toa_do['follow'][0]} {toa_do['follow'][1]}")
+        time.sleep(random.uniform(delay, delay + 1))  # Delay ngẫu nhiên để tránh bị phát hiện
+
+        # Nhấp đúp vào màn hình để thả tim (double tap)
+        #print("❤️ Nhấp đồng thời vào màn hình để thả tim...")
+       
+        
+        return True
+
+    except Exception as e:
+        print(f"❌ Lỗi khi thực hiện click ADB: {str(e)}")
+        return False
+def auto_click():
+    """Chạy auto click Follow và Like trong một luồng riêng."""
+    while True:
+        actual_delay = random.randint(delay_min, delay_max)
+        click_tiktok_buttons(toa_do_nut, actual_delay)
+        #print(f"Đã click, chờ {actual_delay} giây trước lần tiếp theo...")
+        time.sleep(actual_delay)
+# Chạy chương trình
+# Chạy chương trình liên tục
+# Chạy chương trình liên tục trong một luồng riêng
+toa_do_nut = lay_toa_do_nut()
+if toa_do_nut:
+    try:
+        delay_min = int(input("Nhập thời gian delay tối thiểu giữa các lần click (giây): "))
+        delay_max = int(input("Nhập thời gian delay tối đa giữa các lần click (giây): "))
+
+        # Chạy auto click trong thread
+        click_thread = threading.Thread(target=auto_click)
+        click_thread.daemon = True  # Chạy nền
+        click_thread.start()
+
+    except ValueError:
+        print("Lỗi: Delay phải là số nguyên!")
+
+# Các chức năng khác của chương trình vẫn chạy tiếp bình thường
 
 def countdown(time_sec):
     for remaining_time in range(time_sec, -1, -1):
         colors = [
-            "\033[1;37m\033[1;36m\033[1;35m\033[1;32m\033[1;31m \033[1;34m\033[1;33m\033[1;36m\033[1;36m🍉 - ĐỚP ❣️\033[1;36m \033[1;31m\033[1;32m",
-            "\033[1;34m\033[1;31m\033[1;37m\033[1;36m\033[1;32m \033[1;35m\033[1;37m\033[1;33m\033[1;32m🍉 - ĐỚP ❣️\033[1;34m \033[1;31m\033[1;32m",
-            "\033[1;31m\033[1;37m\033[1;36m\033[1;33m\033[1;35m \033[1;32m\033[1;34m\033[1;35m\033[1;37m🍉 - ĐỚP ❣️\033[1;33m \033[1;31m\033[1;32m",
-            "\033[1;32m\033[1;33m\033[1;34m\033[1;35m\033[1;36m \033[1;37m\033[1;36m\033[1;31m\033[1;34m🍉 - ĐỚP ❣️\033[1;31m \033[1;31m\033[1;32m",
-            "\033[1;37m\033[1;34m\033[1;35m\033[1;36m\033[1;32m \033[1;33m\033[1;31m\033[1;37m\033[1;34m🍉 - ĐỚP ✔️\033[1;37m \033[1;31m\033[1;32m",
-            "\033[1;34m\033[1;33m\033[1;37m\033[1;35m\033[1;31m \033[1;36m\033[1;36m\033[1;32m\033[1;37m🍉 - ĐỚP ✔️\033[1;36m \033[1;31m\033[1;32m",
-            "\033[1;36m\033[1;35m\033[1;31m\033[1;34m\033[1;37m \033[1;35m\033[1;32m\033[1;36m\033[1;33m🍉 - ĐỚP ✔️\033[1;33m \033[1;31m\033[1;32m",
+            "\033[1;37m\033[1;36m\033[1;35m\033[1;32m\033[1;31m \033[1;34m\033[1;33m\033[1;36m\033[1;36m🍉 - KEDO-TOOLS\033[1;36m \033[1;31m\033[1;32m",
+            "\033[1;34m\033[1;31m\033[1;37m\033[1;36m\033[1;32m \033[1;35m\033[1;37m\033[1;33m\033[1;32m🍉 - KEDO-TOOLS\033[1;34m \033[1;31m\033[1;32m",
+            "\033[1;31m\033[1;37m\033[1;36m\033[1;33m\033[1;35m \033[1;32m\033[1;34m\033[1;35m\033[1;37m🍉 - KEDO-TOOLS\033[1;33m \033[1;31m\033[1;32m",
+            "\033[1;32m\033[1;33m\033[1;34m\033[1;35m\033[1;36m \033[1;37m\033[1;36m\033[1;31m\033[1;34m🍉 - KEDO-TOOLS\033[1;31m \033[1;31m\033[1;32m",
+            "\033[1;37m\033[1;34m\033[1;35m\033[1;36m\033[1;32m \033[1;33m\033[1;31m\033[1;37m\033[1;34m🍉 - KEDO-TOOLS\033[1;37m \033[1;31m\033[1;32m",
+            "\033[1;34m\033[1;33m\033[1;37m\033[1;35m\033[1;31m \033[1;36m\033[1;36m\033[1;32m\033[1;37m🍉 - KEDO-TOOLS\033[1;36m \033[1;31m\033[1;32m",
+            "\033[1;36m\033[1;35m\033[1;31m\033[1;34m\033[1;37m \033[1;35m\033[1;32m\033[1;36m\033[1;33m🍉 - KEDO-TOOLS\033[1;33m \033[1;31m\033[1;32m",
         ]
         for color in colors:
             print(f"\r{color}|{remaining_time}| \033[1;31m", end="")
@@ -76,11 +163,17 @@ def countdown(time_sec):
     print("\r                          \r", end="") 
     print("\033[1;35mĐang Nhận Tiền         ", end="\r")
 
+# Các chức năng khác sẽ chạy bình thường ở đây
+#print("Auto-click đang chạy ngầm. Chương trình tiếp tục các tác vụ khác...")
+
+# Các chức năng khác của chương trình vẫn chạy tiếp bình thường
+
+
 # Rest of your original code remains the same...
 # (Including TIKTOKINFO(), banner(), LIST() and the main authentication flow)
 
 def TIKTOKINFO():  
-    url1_2 = 'https://gateway.golike.net/api/tiktok-account'
+    url1_2 = 'https://gateway.golike.net/api/snapchat-account'
     checkurl1_2 = ses.get(url1_2,headers=headers).json()
     user_tiktok1 = []
     account_id1 = []
@@ -91,7 +184,7 @@ def TIKTOKINFO():
     i = 1
 
     for data in checkurl1_2['data']:
-        usernametk = data['nickname']
+        usernametk = data['username']
         account_id = data['id']
         user_tiktok1.append(usernametk)
         account_id1.append(account_id)
@@ -130,19 +223,17 @@ def TIKTOKINFO():
             if i >= job_count:  # job_count là số lượng job người dùng nhập
               break
             
-            url2 = 'https://gateway.golike.net/api/advertising/publishers/tiktok/jobs?account_id='+str(account_id)+'&data=null'
+            url2 = 'https://gateway.golike.net/api/advertising/publishers/snapchat/jobs?account_id='+str(account_id)+'&data=null'
             checkurl2 = ses.get(url2,headers=headers).json()
             if checkurl2['status'] ==200:
                 linkjob = []
-                linkjob = str(checkurl2['data']['link'])
+                linkjob = str(checkurl2['data']['link'])            
                 lenjob = len(checkurl2['data']['link'])
                 ads_id = checkurl2['data']['id']
                 object_id = checkurl2['data']['object_id']
-                type = checkurl2['data']['type']
-                # Mở TikTok Lite thay vì TikTok thường
-                # Mở link TikTok với yêu cầu chọn ứng dụng
-                os.system("termux-open-url "+str(linkjob[0:lenjob])+"")
-                
+                type = checkurl2['data']['type']                                     
+                # Mở link TikTok Lite bằng dạng link ngắn
+                os.system("termux-open-url "+str(linkjob[0:lenjob])+"")                          
                 PARAMS = {
                     'ads_id': ads_id,
                     'account_id': account_id,
@@ -152,14 +243,14 @@ def TIKTOKINFO():
                     'type': type,
                 }
                 countdown(DELAY)
-                url3 = 'https://gateway.golike.net/api/advertising/publishers/tiktok/complete-jobs'
+                url3 = 'https://gateway.golike.net/api/advertising/publishers/snapchat/complete-jobs'
                 time.sleep(1)
                 checkurl3 = ses.post(url3,params=PARAMS).json()
                 if checkurl3['status'] == 400 :
 
                         time.sleep(2)
 
-                        url3 = 'https://gateway.golike.net/api/advertising/publishers/tiktok/complete-jobs'
+                        url3 = 'https://gateway.golike.net/api/advertising/publishers/snapchat/complete-jobs'
                         checkurl3 = ses.post(url3,params=PARAMS).json()
                         if checkurl3['status'] == 200:
                             dem += 1
@@ -191,7 +282,7 @@ def TIKTOKINFO():
 
                                     time.sleep(2)
 
-                                    url3 = 'https://gateway.golike.net/api/advertising/publishers/tiktok/complete-jobs'
+                                    url3 = 'https://gateway.golike.net/api/advertising/publishers/snapchat/complete-jobs'
                                     checkurl3 = ses.post(url3,params=PARAMS).json()
                                     if checkurl3['status'] == 200:
                                         dem += 1
@@ -222,7 +313,7 @@ def TIKTOKINFO():
                                     else:
                                         time.sleep(2)
 
-                                        url3 = 'https://gateway.golike.net/api/advertising/publishers/tiktok/complete-jobs'
+                                        url3 = 'https://gateway.golike.net/api/advertising/publishers/snapchat/complete-jobs'
                                         checkurl3 = ses.post(url3,params=PARAMS).json()
                                         if checkurl3['status'] == 200:
                                             dem += 1
@@ -252,7 +343,7 @@ def TIKTOKINFO():
                                                 # prices = checkurl3['data']['prices']
                                                 # print(Fore.CYAN+'['+str(i)+']'+'|'+Fore.WHITE+type+'|'+Fore.GREEN+str(ads_id)+' | '+Fore.YELLOW+str(prices)+'VND'+'|'+Fore.BLUE+"SUCCESS")
                                         else:
-                                            skipjob = 'https://gateway.golike.net/api/advertising/publishers/tiktok/skip-jobs'
+                                            skipjob = 'https://gateway.golike.net/api/advertising/publishers/snapchat/skip-jobs'
                                             checkskipjob = ses.post(skipjob,params=PARAMS).json()
                                             if checkskipjob['status'] == 200:
                                                 message = checkskipjob['message']
@@ -293,7 +384,7 @@ def TIKTOKINFO():
                     
                     # print(Fore.CYAN+'['+str(i)+']'+'|'+Fore.WHITE+type+'|'+Fore.GREEN+str(ads_id)+' | '+Fore.YELLOW+str(prices)+'VND'+'|'+Fore.BLUE+"SUCCESS")
                 else :
-                    skipjob = 'https://gateway.golike.net/api/advertising/publishers/tiktok/skip-jobs'
+                    skipjob = 'https://gateway.golike.net/api/advertising/publishers/snapchat/skip-jobs'
                     checkskipjob = ses.post(skipjob,params=PARAMS).json()
                     if checkskipjob['status'] == 200:
                         message = checkskipjob['message']
@@ -309,7 +400,7 @@ def TIKTOKINFO():
             else : 
                 countdown(15)
                 print(checkurl2['message'])
-                skipjob = 'https://gateway.golike.net/api/advertising/publishers/tiktok/skip-jobs'
+                skipjob = 'https://gateway.golike.net/api/advertising/publishers/snapchat/skip-jobs'
                 checkskipjob = ses.post(skipjob,params=PARAMS).json()
                 if checkskipjob['status'] == 200:
                     message = checkskipjob['message']
@@ -342,11 +433,9 @@ def banner():
     🌸 Chúc bạn một ngày vui vẻ và nhiều may mắn! 🌸
     🐱 Mèo con chúc bạn code không lỗi! 🐱
     ─────────────────────────────────────────
-      🛠️ Admin support tool Zalo:  0367742346
-                                   0348865758
-        Web tải tool và HD:
-        https://mlevip.blogspot.com/2025/02/huong-dan-su-dung-tool-body-font-family.html
-      🔗 Chat support: https://zalo.me/g/uaahwq871
+      🛠️ Admin support tool Zalo:  
+      🔗 Chat support: 
+                    https://zalo.me/g/uaahwq871
       🌐 Web VPN giá rẻ & ID Apple free: timgiare.top ✔️
     ─────────────────────────────────────────
     CopyRight: © KEDO@TOOL
@@ -667,7 +756,7 @@ if checkurl1['status']== 200 :
         print(Fore.GREEN+'\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mTài Khoản : '+Fore.YELLOW+username)
         print(Fore.GREEN+'\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mTổng Tiền : '+Fore.YELLOW+str(coin))
         print(Fore.RED+'\033[97m════════════════════════════════════════════════')
-        print("\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mNhập \033[1;31m1 \033[1;33mđể vào \033[1;34mTool TikTok\033[1;33m")
+        print("\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mNhập \033[1;31m1 \033[1;33mđể vào \033[1;34mTool Snapchat\033[1;33m")
         print(Fore.RED+'\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;31mNhập 2 Để Xóa Authorization Hiện Tại')
         choose = int(input(Fore.WHITE+'\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mNhập Lựa Chọn : '))
         if choose == 1:
