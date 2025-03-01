@@ -288,32 +288,32 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--force-device-scale-factor=0.45")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-chrome_options.add_argument("--disable-background-networking")  # Tắt request nền không cần thiết
-chrome_options.add_argument("--disable-sync")  # Tắt đồng bộ hóa tài khoản Facebook
-chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")  # Tắt một số dịch vụ mạng
-chrome_options.add_argument("--disable-remote-fonts")  # Không tải font chữ từ server
-chrome_options.add_argument("--disable-component-update")  # Không cập nhật component nền của Chrome
-chrome_options.add_argument("--disk-cache-size=0")  # Không lưu cache vào ổ cứng
-chrome_options.add_argument("--no-sandbox")  # Tắt sandbox
-chrome_options.add_argument("--disable-dev-shm-usage") 
-chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")
-chrome_options.add_argument("--disable-background-preloading")
+#chrome_options.add_argument("--disable-background-networking")  # Tắt request nền không cần thiết
+#chrome_options.add_argument("--disable-sync")  # Tắt đồng bộ hóa tài khoản Facebook
+#chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")  # Tắt một số dịch vụ mạng
+#chrome_options.add_argument("--disable-remote-fonts")  # Không tải font chữ từ server
+#chrome_options.add_argument("--disable-component-update")  # Không cập nhật component nền của Chrome
+#chrome_options.add_argument("--disk-cache-size=0")  # Không lưu cache vào ổ cứng
+#chrome_options.add_argument("--no-sandbox")  # Tắt sandbox
+#chrome_options.add_argument("--disable-dev-shm-usage") 
+#chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")
+#chrome_options.add_argument("--disable-background-preloading")
 chrome_options.add_argument("--no-ssl-cert-check")  # Tắt kiểm tra chứng chỉ SSL
-chrome_options.add_argument("--disable-software-rasterizer")  
-prefs = {"profile.managed_default_content_settings.images": 2,  # Tắt ảnh
-    "profile.managed_default_content_settings.stylesheets": 2,  # Tắt CSS
-    "profile.managed_default_content_settings.fonts": 2}  # Tắt font chữ}
-vid = {
-    "profile.managed_default_content_settings.images": 2,  # Không tải ảnh
-    "profile.managed_default_content_settings.videos": 2,  # Không tải video
-    "profile.managed_default_content_settings.media_stream": 2  # Chặn camera & mic
-}
+#chrome_options.add_argument("--disable-software-rasterizer")  
+#prefs = {"profile.managed_default_content_settings.images": 2,  # Tắt ảnh
+  #  "profile.managed_default_content_settings.stylesheets": 2,  # Tắt CSS
+#    "profile.managed_default_content_settings.fonts": 2}  # Tắt font chữ}
+#vid = {
+ #   "profile.managed_default_content_settings.images": 2,  # Không tải ảnh
+#    "profile.managed_default_content_settings.videos": 2,  # Không tải video
+#    "profile.managed_default_content_settings.media_stream": 2  # Chặn camera & mic
+#}
 chrome_options.add_experimental_option("prefs", prefs)
 chrome_options.add_experimental_option("prefs", vid)
 chrome_options.add_argument("--disable-sync")  # Không đồng bộ dữ liệu trình duyệt
 chrome_options.add_argument("--metrics-recording-only")  # Giảm tải đo lường hiệu suất
 chrome_options.add_argument("--disable-default-apps")  # Không tải các app mặc định của Chrome
-chrome_options.add_argument("--blink-settings=imagesEnabled=false")  # Không tải ảnh
+#chrome_options.add_argument("--blink-settings=imagesEnabled=false")  # Không tải ảnh
 chrome_options.add_argument("--disable-site-isolation-trials")  # Giảm bảo mật, tăng hiệu suất
 chrome_options.add_argument("--disable-logging")  # Tắt log của Chrome
 chrome_options.add_argument("--disable-crash-reporter")  # Không gửi báo cáo crash
@@ -353,30 +353,30 @@ chrome_options.add_argument("--disable-notifications")
 chrome_options.add_argument("--disable-logging")
 chrome_options.add_argument("--disable-infobars")
 chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-background-networking")  # Tắt request nền không cần thiết
-chrome_options.add_argument("--disable-sync")  # Tắt đồng bộ hóa tài khoản Facebook
-chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")  # Tắt một số dịch vụ mạng
-chrome_options.add_argument("--disable-remote-fonts")  # Không tải font chữ từ server
-chrome_options.add_argument("--disable-component-update")  # Không cập nhật component nền của Chrome
-chrome_options.add_argument("--disk-cache-size=0")  # Không lưu cache vào ổ cứng
-chrome_options.add_argument("--no-sandbox")  # Tắt sandbox
-chrome_options.add_argument("--disable-dev-shm-usage") 
-chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")
-chrome_options.add_argument("--disable-background-preloading")
-chrome_options.add_argument("--no-ssl-cert-check")  # Tắt kiểm tra chứng chỉ SSL
-chrome_options.add_argument("--disable-software-rasterizer")  
-prefs = {"profile.managed_default_content_settings.images": 2,  # Tắt ảnh
-    "profile.managed_default_content_settings.stylesheets": 2,  # Tắt CSS
-    "profile.managed_default_content_settings.fonts": 2}  # Tắt font chữ}
-vid = {
-    "profile.managed_default_content_settings.images": 2,  # Không tải ảnh
-    "profile.managed_default_content_settings.videos": 2,  # Không tải video
-    "profile.managed_default_content_settings.media_stream": 2  # Chặn camera & mic
-}
-chrome_options.add_experimental_option("prefs", prefs)
-chrome_options.add_experimental_option("prefs", vid)
-chrome_options.add_argument("--disable-sync")  # Không đồng bộ dữ liệu trình duyệt
-chrome_options.add_argument("--metrics-recording-only")  # Giảm tải đo lường hiệu suất
+#chrome_options.add_argument("--disable-background-networking")  # Tắt request nền không cần thiết
+#chrome_options.add_argument("--disable-sync")  # Tắt đồng bộ hóa tài khoản Facebook
+#chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")  # Tắt một số dịch vụ mạng
+#chrome_options.add_argument("--disable-remote-fonts")  # Không tải font chữ từ server
+#chrome_options.add_argument("--disable-component-update")  # Không cập nhật component nền của Chrome
+#chrome_options.add_argument("--disk-cache-size=0")  # Không lưu cache vào ổ cứng
+#chrome_options.add_argument("--no-sandbox")  # Tắt sandbox
+#chrome_options.add_argument("--disable-dev-shm-usage") 
+#chrome_options.add_argument("--disable-features=NetworkService,NetworkServiceInProcess")
+#chrome_options.add_argument("--disable-background-preloading")
+#chrome_options.add_argument("--no-ssl-cert-check")  # Tắt kiểm tra chứng chỉ SSL
+#chrome_options.add_argument("--disable-software-rasterizer")  
+#prefs = {"profile.managed_default_content_settings.images": 2,  # Tắt ảnh
+  #  "profile.managed_default_content_settings.stylesheets": 2,  # Tắt CSS
+#    "profile.managed_default_content_settings.fonts": 2}  # Tắt font chữ}
+#vid = {
+#    "profile.managed_default_content_settings.images": 2,  # Không tải ảnh
+#    "profile.managed_default_content_settings.videos": 2,  # Không tải video
+#    "profile.managed_default_content_settings.media_stream": 2  # Chặn camera & mic
+#}
+#chrome_options.add_experimental_option("prefs", prefs)
+#chrome_options.add_experimental_option("prefs", vid)
+#chrome_options.add_argument("--disable-sync")  # Không đồng bộ dữ liệu trình duyệt
+#chrome_options.add_argument("--metrics-recording-only")  # Giảm tải đo lường hiệu suất
 chrome_options.add_argument("--disable-default-apps")  # Không tải các app mặc định của Chrome
 chrome_options.add_argument("--blink-settings=imagesEnabled=false")  # Không tải ảnh
 chrome_options.add_argument("--disable-site-isolation-trials")  # Giảm bảo mật, tăng hiệu suất
