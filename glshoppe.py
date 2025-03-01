@@ -10,7 +10,7 @@ address_list_url = "https://raw.githubusercontent.com/chhhgggg/h/main/address_li
 # Danh sách file ZIP cần tải
 zip_urls = [
     "https://github.com/chhhgggg/h/raw/main/ToolGolikeShoppe.zip",
-    "https://github.com/chhhgggg/h/raw/main/rektCaptcha-reCaptcha-Solver.zip"
+    "https://github.com/chhhgggg/h/raw/main/Captcha-reCaptcha-Solver.zip"
 ]
 
 # Tạo mã thông báo (giả lập)
