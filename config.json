@@ -1,5 +1,0 @@
-{
-  "time_sleep_minute": 1140,
-  "max_thread": 100000,
-  "skip_tasks": ["invite_one_fren", "streak_2_day", "earn_100_gm", "use_yielder"]
-}
