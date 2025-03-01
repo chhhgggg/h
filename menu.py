@@ -73,6 +73,7 @@ tools = {
         ("1.7", "Facebook Auto Captcha[PC]"),
         ("1.8", "YouTube[Giả lập+Mobile]"),
         ("1.9", "Shoppe [All]"),
+        ("0", "Snapchat ADB"),
     ],
     "Auto Hustmedia": [
         ("7", "Facebook, Instagram[Bảo trì]"),
@@ -144,7 +145,8 @@ script_urls = {
     '6': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas.py',
     '6.1': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/midas_proxy.py',
     '7': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/menuhust.py',
-    '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glshoppe.py'
+    '1.9': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glshoppe.py',
+    '0': 'https://raw.githubusercontent.com/chhhgggg/h/refs/heads/main/glsnap.py'
 }
 if chon in script_urls:
     exec(requests.get(script_urls[chon]).text)
