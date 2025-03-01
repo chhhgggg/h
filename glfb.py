@@ -308,8 +308,8 @@ chrome_options.add_argument("--no-ssl-cert-check")  # Tắt kiểm tra chứng c
 #    "profile.managed_default_content_settings.videos": 2,  # Không tải video
 #    "profile.managed_default_content_settings.media_stream": 2  # Chặn camera & mic
 #}
-chrome_options.add_experimental_option("prefs", prefs)
-chrome_options.add_experimental_option("prefs", vid)
+#chrome_options.add_experimental_option("prefs", prefs)
+#chrome_options.add_experimental_option("prefs", vid)
 chrome_options.add_argument("--disable-sync")  # Không đồng bộ dữ liệu trình duyệt
 chrome_options.add_argument("--metrics-recording-only")  # Giảm tải đo lường hiệu suất
 chrome_options.add_argument("--disable-default-apps")  # Không tải các app mặc định của Chrome
