@@ -1,758 +1,101 @@
-<!DOCTYPE html>
-<html lang="vi">
+ 
+<meta name="description" content="KEDO Tools - Cung cấp các dịch vụ và công cụ MMO hàng đầu">
+<meta name="keywords" content="kedo tools, mmo tools, facebook tools, instagram tools, social media tools">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="content-language" content="vi">
-    <meta name="robots" content="index, follow">
+<!-- Open Graph data -->
+<meta property="og:title" content="KEDO Tools - Dịch vụ và công cụ MMO chuyên nghiệp">
+<meta property="og:type" content="Website">
+<meta property="og:url" content="https://timgiare.top">
+<meta property="og:image" content="https://s120-ava-talk.zadn.vn/0/7/b/9/38/120/a3a8a88d4801663da40acbb025fe160f.jpg">
+<meta property="og:description" content="Cung cấp các công cụ MMO chuyên nghiệp cho Facebook, Instagram, Threads, Twitter, Zalo">
+<meta property="og:site_name" content="KEDO Tools">
 
-    <meta name="description" content="KEDO Tools - Cung cấp các dịch vụ và công cụ MMO hàng đầu">
-    <meta name="keywords" content="kedo tools, mmo tools, facebook tools, instagram tools, social media tools">
+<link rel="icon" href="assets/default/images/adminfav.png">
+<link rel="apple-touch-icon" href="assets/default/images/adminfav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:wght@400;500;600;700&display=swap" rel
+="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
 
-    <!-- Open Graph data -->
-    <meta property="og:title" content="KEDO Tools - Dịch vụ và công cụ MMO chuyên nghiệp">
-    <meta property="og:type" content="Website">
-    <meta property="og:url" content="https://timgiare.top">
-    <meta property="og:image" content="https://s120-ava-talk.zadn.vn/0/7/b/9/38/120/a3a8a88d4801663da40acbb025fe160f.jpg">
-    <meta property="og:description" content="Cung cấp các công cụ MMO chuyên nghiệp cho Facebook, Instagram, Threads, Twitter, Zalo">
-    <meta property="og:site_name" content="KEDO Tools">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/default/css/app.css">
+    <link rel="stylesheet" href="assets/default/css/main.css">
 
-    <link rel="icon" href="assets/default/images/adminfav.png">
-    <link rel="apple-touch-icon" href="assets/default/images/adminfav.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:wght@400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/default/images/favicon.png">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="assets/default/plugins/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/default/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="assets/default/plugins/fancybox/fancybox.min.css">
-    <link rel="stylesheet" href="assets/default/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/default/css/base.css?1691906155">
-    <link rel="stylesheet" href="assets/default/css/style.css?1691906155">
-    
+    <!-- Title -->
     <title>KEDO Tools - Dịch vụ và công cụ MMO chuyên nghiệp</title>
-    
-    <style>
-        :root {
-            --primary-color: #8e44ad;
-            --secondary-color: #9b59b6;
-            --accent-color: #ff6b6b;
-            --text-color: #2c3e50;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --gradient-bg: linear-gradient(135deg, #6a3093, #a044ff);
-        }
-        
-        @font-face {
-            font-family: 'KeDoFont';
-            src: url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background: var(--gradient-bg);
-            color: var(--text-color);
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 80px;
-            overflow-x: hidden;
-        }
-        
-        /* Fancy Text Styles */
-        .fancy-text {
-            font-family: 'Dancing Script', cursive;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .header {
-            background-color: rgba(255, 255, 255, 0.9) !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            padding: 15px 0;
-            position: relative;
-            z-index: 100;
-        }
-        
-        .header::before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,0 C300,30 600,30 1200,0 L1200,30 L0,30 Z" fill="%238e44ad"/></svg>');
-            background-size: 100% 100%;
-        }
-        
-        .main {
-            padding: 20px 0;
-            position: relative;
-        }
-        
-        .profile-inner {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .profile-inner::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%239b59b6" stroke-width="1" opacity="0.2"/></svg>');
-            background-size: 150px 150px;
-            opacity: 0.1;
-            z-index: -1;
-        }
-        
-        .profile-avatar {
-            text-align: center;
-            position: relative;
-            margin-bottom: 20px;
-        }
-        
-        .profile-avatar img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            object-fit: cover;
-            transition: all 0.5s;
-        }
-        
-        .profile-avatar img:hover {
-            transform: scale(1.05) rotate(5deg);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 107, 107, 0.3);
-        }
-        
-        .profile-avatar::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: calc(50% - 85px);
-            width: 170px;
-            height: 170px;
-            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-        }
-        
-        .profile-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            font-family: 'Dancing Script', cursive;
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-            width: 100%;
-        }
-        
-        .profile-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-        }
-        
-        .profile-box {
-            margin-bottom: 25px;
-            background-color: white;
-            border-radius: 15px !important;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(155, 89, 182, 0.1);
-        }
-        
-        .profile-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 0 20px rgba(155, 89, 182, 0.2);
-        }
-        
-        .profile-box::before {
-            content: "";
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(155, 89, 182, 0.1), transparent);
-            border-radius: 50%;
-            transition: all 0.8s;
-            z-index: 0;
-        }
-        
-        .profile-box:hover::before {
-            transform: scale(3);
-            opacity: 0;
-        }
-        
-        .profile-box_content {
-            padding: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .profile-box_content__title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            padding-bottom: 10px;
-            border-bottom: 2px dashed rgba(155, 89, 182, 0.3);
-            position: relative;
-        }
-        
-        .profile-box_content__title::after {
-            content: "🦇";
-            position: absolute;
-            right: 5px;
-            top: 0;
-            font-size: 1.2rem;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s;
-        }
-        
-        .profile-box:hover .profile-box_content__title::after {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .profile-box_content__list p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-left: 5px;
-            transition: all 0.3s;
-        }
-        
-        .profile-box_content__list p:hover {
-            transform: translateX(5px);
-        }
-        
-        .profile-box_content__list p span {
-            margin-right: 15px;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-bg);
-            border-radius: 50%;
-            color: var(--primary-color);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .profile-box_content__list p:hover span {
-            background-color: var(--primary-color);
-            color: white;
-            transform: rotate(360deg);
-        }
-        
-        .profile-box_content__list p img {
-            width: 20px;
-            height: 20px;
-            object-fit: contain;
-            transition: all 0.3s;
-        }
-        
-        .profile-box_content__list p:hover img {
-            transform: scale(1.2);
-        }
-        
-        .profile-box_content__list a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .profile-box_content__list a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: all 0.3s;
-        }
-        
-        .profile-box_content__list a:hover {
-            color: var(--accent-color);
-        }
-        
-        .profile-box_content__list a:hover::after {
-            width: 100%;
-        }
-        
-        .profile-box_content__desc {
-            padding: 10px 0;
-            line-height: 1.8;
-        }
-        
-        .profile-box_content__image {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            opacity: 0.6;
-            width: 60px;
-            height: 60px;
-            transition: all 0.5s;
-        }
-        
-        .profile-box:hover .profile-box_content__image {
-            transform: rotate(15deg) scale(1.1);
-            opacity: 0.8;
-        }
-        
-        .profile-box_content__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: hue-rotate(45deg);
-            transition: all 0.5s;
-        }
-        
-        .profile-box:hover .profile-box_content__image img {
-            filter: none;
-        }
-        
-        .key-display {
-            width: 100%;
-            padding: 18px;
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 2px solid var(--primary-color);
-            border-radius: 15px;
-            font-size: 1.25rem;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .key-display::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(155, 89, 182, 0.05), transparent);
-            background-size: 200% 200%;
-            animation: shimmer 3s linear infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 200%; }
-        }
-        
-        .key-display:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(155, 89, 182, 0.2);
-            border-color: var(--accent-color);
-        }
-        
-        .key-display code {
-            flex-grow: 1;
-            font-family: 'Courier New', monospace;
-            background-color: rgba(0, 0, 0, 0.05);
-            padding: 8px 15px;
-            border-radius: 8px;
-            overflow: auto;
-            white-space: nowrap;
-            position: relative;
-            border: 1px solid rgba(155, 89, 182, 0.1);
-        }
-        
-        .copy-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            margin-left: 15px;
-            cursor: pointer;
-            transition: all 0.4s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
-        }
-        
-        .copy-btn:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.4);
-        }
-        
-        .copy-btn::before {
-            content: "🦇";
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            opacity: 0;
-            transition: all 0.5s;
-            font-size: 20px;
-        }
-        
-        .copy-btn:hover::before {
-            animation: flyBat 1s forwards;
-        }
-        
-        @keyframes flyBat {
-            0% {
-                top: -20px;
-                left: -20px;
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            50% {
-                top: 5px;
-                left: 10px;
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                top: -20px;
-                left: 110%;
-                opacity: 0;
-                transform: scale(0.5);
-            }
-        }
-        
-        .bank-info {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .bank-info li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 18px;
-            padding: 12px 15px;
-            background-color: rgba(248, 249, 250, 0.8);
-            border-radius: 10px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .bank-info li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-            opacity: 0;
-            transition: all 0.3s;
-        }
-        
-        .bank-info li:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: rgba(248, 249, 250, 1);
-        }
-        
-        .bank-info li:hover::before {
-            opacity: 1;
-        }
-        
-        .bank-info img {
-            width: 30px;
-            height: 30px;
-            margin-right: 15px;
-            transition: all 0.3s;
-        }
-        
-        .bank-info li:hover img {
-            transform: scale(1.1) rotate(10deg);
-        }
-        
-        .bank-info .account-name {
-            color: #e74c3c;
-            font-weight: bold;
-            position: relative;
-            transition: all 0.3s;
-        }
-        
-        .bank-info li:hover .account-name {
-            color: var(--accent-color);
-        }
-        
-        .bank-info .account-name::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: all 0.3s;
-        }
-        
-        .bank-info li:hover .account-name::after {
-            width: 100%;
-        }
-        
-        .bank-info .copy-icon {
-            margin-left: 10px;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(155, 89, 182, 0.1);
-            border-radius: 50%;
-        }
-        
-        .bank-info .copy-icon:hover {
-            color: white;
-            background-color: var(--primary-color);
-            transform: rotate(360deg);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 20px;
-        }
-        
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
-            overflow: hidden;
-        }
-        
-        .social-links a::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 80%);
-            opacity: 0;
-            transition: all 0.4s;
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.4);
-            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-        }
-        
-        .social-links a:hover::before {
-            opacity: 1;
-        }
-        
-        .social-links a i {
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover i {
-            transform: scale(1.2);
-        }
-        
-        footer {
-            background-color: rgba(44, 62, 80, 0.95);
-            color: white;
-            text-align: center;
-            padding: 25px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            border-top: 3px solid rgba(155, 89, 182, 0.5);
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: 0;
-            width: 100%;
-            height: 15px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0,30 C300,10 600,0 1200,30 L1200,30 L0,30 Z" fill="%232c3e50"/></svg>');
-            background-size: 100% 100%;
-        }
-        
-        /* Toast notification for copy success */
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-        
-        .toast {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .toast::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            background-size: 200% 200%;
-            animation: shimmer 2s linear infinite;
-        }
-        
-        .toast.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .toast i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Bat Animation */
-        .bat {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM128.3 128.3c-9.375-9.375-9.375-24.56 0-33.94s24.56-9.375 33.94 0L190.5 122.6C193.1 108.5 200.2 94.9 213.2 85.38c24.75-18.12 59.59-13.12 78.59 11.62c3.062-1.625 6.249-2.499 9.374-2.499c5.625 0 11.12 2.25 15.12 6.5c8.125 8.75 7.625 22.38-.75 30.5c12.75 18.75 17.87 41.25 14.12 63.13L378.8 243.8c26.5-25.62 19.38-27.88 42.63-27.88c21.25 0 21.5 21.25 21.5 32.25c0 12.75-10.75 24.5-26.25 28.88c-2.375 .75-4.874 1.125-7.374 1.125c-14.12 0-27.25-9.25-31.25-23.5l-19.5-69.5c-5.875 .375-11.62 .625-17.62 .625c-46 0-86-14.38-110.4-35.5L128.3 128.3zM307.5 379c-25.87 18.25-59.87 15.88-81.87-5.375c-40.37-38.75-46.75-57.25-45.25-88c30.25 32.75 79.87 45.5 125.4 45.5c6.75 0 13.25-.375 19.62-.75l31.62 65.75C360.1 413.4 341.4 430.6 307.5 379z" fill="%238e44ad"/></svg>');
-            background-size: contain;
-            pointer-events: none;
-            z-index: 999;
-            opacity: 0;
-        }
-        
-        /* Improved Snowflake Animation */
-        .snowflakes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 100;
-        }
-        
-        .snowflake {
-            position: fixed;
-            top: -10%;
-            z-index: 9999;
-            user-select: none;
-            cursor: default;
-            animation-name: snowflake-fall, snowflake-shake;
-            animation-duration: 10s, 3s;
-            animation-timing-function: linear, ease-in-out;
-            animation-iteration-count: infinite, infinite;
-            animation-play-state: running, running;
-            font-size: 1.5em;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-        }
-        
-        .snowflake:nth-of-type(0) {
-            left: 1%;
-            animation-delay: 0s, 0s;
-        }
-        
-        .snowflake:nth-of-type(1) {
-            left: 10%;
-            animation-delay: 1s, 1s;
-        }
-        
-        .snowflake:nth-of-type(2) {
-            left: 20%;
-            animation-delay: 6s, 0.5s;
-        }
-        
-        .snowflake:nth-of-type(3) {
-            left: 30%;
-            animation-delay: 4s, 2s;
-        }
-        
-        .snowflake:nth-of-type(4) {
-            left: 40%;
-            animation-delay: 2s, 2s;
-        }
-        
-        .snowflake:nth-of-type(5) {
-            left: 50%;
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#"><img src="assets/default/images/logo.png" alt="KEDO Tools"></a>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Công cụ</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="container">
+                <h1>Chào mừng đến với KEDO Tools</h1>
+                <p>Cung cấp các dịch vụ và công cụ MMO chuyên nghiệp cho Facebook, Instagram, Threads, Twitter, Zalo</p>
+                <a href="#" class="btn btn-primary">Tiếp tục</a>
+           
+
+ 
+</div>
+        </div>
+        
+        <div class="footer">
+            <div class="container">
+                <div class="footer-logo">
+                    <a href="#"><img src="assets/default/images/logo.png" alt="KEDO Tools"></a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Công cụ</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/js/all.min.js"></script>
+    <script src="assets/default/js/app.js"></script>
+</body>
+
+</html>
+ 
+
+Đây là phần kết thúc của bản code HTML mà bạn đã yêu cầu. Nếu cần thêm thông tin hoặc hỗ trợ, hãy cho tôi biết! 
