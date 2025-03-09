@@ -1,0 +1,1 @@
+Công cụ KEDO tự động hoá mọi thao tác, tool được chia sẻ bởi một nhóm, nhóm chúng tôi luôn luôn đảm bảo chất lượng, tool auto golike, Tuongtaccheo, Traodoisub hoàn toàn free , mong bạn trải nghiệm nó thật tốt
