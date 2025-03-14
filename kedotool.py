@@ -251,7 +251,7 @@ def validate_key(input_key, ip_address, github_keys):
     
     return False, None, None
 
-def xac_thuc_va_chay_tool():
+def xac_thuc_chay_tool():
     console.print(Panel("[bold green]Đang khởi động hệ thống xác thực...[/bold green]", title="KEDO Tool", border_style="cyan"))
     ip_address = get_ip_address()
     
@@ -302,7 +302,7 @@ def xac_thuc_va_chay_tool():
 
     
 
-def run_tool_menu():
+def tool_menu():
     console.print(Panel(
         Text("Chào mừng bạn đến với KEDO-Tool!\n"
              "Admin: 0367742346/0348865758\n"
