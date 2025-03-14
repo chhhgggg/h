@@ -263,7 +263,7 @@ def xac_thuc_chay_tool():
     stored_key, expiration_info = load_key_locally(ip_address, github_keys)
     if stored_key:
         console.print(Panel(f"[bold green]Đã tìm thấy key hợp lệ đã lưu![/bold green]\n{expiration_info}", title="Xác thực", border_style="green"))
-        run_tool_menu()
+        tool_menu()
         return
     
     console.print(Panel("[bold yellow]Nhập Key Để Dùng Tool[/bold yellow]", title="Yêu cầu", border_style="yellow"))
