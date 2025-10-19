@@ -1,1 +1,11 @@
-
+{
+  "opentest": true,
+  "force_update": false,
+  "update_url": "https://example.com/new-update.apk",
+  "message": "Ứng dụng đã cập nhật mới!",
+  "motd": "Chào mừng quay lại!",
+  "notice": "Kiểm tra tài khoản thường xuyên.",
+  "status": "active",
+  "message_update": "Phiên bản mới với tính năng cải tiến.",
+  "versionName": "2.0.0"
+}
